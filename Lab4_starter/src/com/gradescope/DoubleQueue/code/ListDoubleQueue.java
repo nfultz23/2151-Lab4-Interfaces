@@ -1,3 +1,9 @@
+/*
+ *Rowan Froeschner
+ *Ryan Pisciotti
+ *Noah Fultz
+ */
+
 package com.gradescope.DoubleQueue.code;
 
 import java.util.ArrayList;
@@ -5,13 +11,12 @@ import java.util.ArrayList;
 /**ListDoubleQueueContract
  *
  *
- * @invariant:
+ * @invariant: maxListSize > 0 AND LQueue.size() <= maxListSize
  *
- * @corresponds:
+ * @corresponds: 
  *
  */
-public class ListDoubleQueue implements IDoubleQueue
-{
+public class ListDoubleQueue implements IDoubleQueue {
     private ArrayList<Double> LQueue;
     private int maxListSize;
 
@@ -20,13 +25,13 @@ public class ListDoubleQueue implements IDoubleQueue
      *
      * @param maxSize
      *
-     * @pre
+     * @pre maxsize > 0
      *
-     * @post
+     * @post maxListSize = maxSize AND self = new ArrayList<Double>();
+     *       (input value becomes maximum list size and the LQueue member is a new and empty ArrayList<Double> object
      *
      */
-    public ListDoubleQueue(int maxSize)
-    {
+    public ListDoubleQueue(int maxSize) {
         this.LQueue = new ArrayList<Double>();
         this.maxListSize = maxSize;
     }
@@ -36,14 +41,14 @@ public class ListDoubleQueue implements IDoubleQueue
      *
      * @param val
      *
-     * @pre
+     * @pre val != 0
      *
-     * @post
+     * @post An item is appended to the ArrayList, but if the queue has reached its maximum size,
+     *         then the final value of the list is changed to the enqueued value
      *
      */
     @Override
-    public void enqueue(Double val)
-    {
+    public void enqueue(Double val) {
         if(LQueue.size() == this.maxListSize)
             LQueue.set(this.maxListSize-1, val);
         else
@@ -53,24 +58,20 @@ public class ListDoubleQueue implements IDoubleQueue
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
 
     @Override
-    public Double dequeue()
-    {
+    public Double dequeue() {
         return LQueue.remove(0);
     }
 
 
     @Override
-    public int length()
-    {
+    public int length() {
         return LQueue.size();
     }
 
 
-    public String toString()
-    {
+    public String toString() {
         String ret = "";
-        for(Double d : LQueue)
-        {
+        for(Double d : LQueue) {
             ret += ("[" + d + "] ");
         }
         return ret;
