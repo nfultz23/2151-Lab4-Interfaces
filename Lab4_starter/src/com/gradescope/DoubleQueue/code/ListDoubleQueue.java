@@ -45,6 +45,7 @@ public class ListDoubleQueue implements IDoubleQueue {
      *
      * @post An item is appended to the ArrayList, but if the queue has reached its maximum size,
      *         then the final value of the list is changed to the enqueued value
+     *         self = #self
      *
      */
     @Override
