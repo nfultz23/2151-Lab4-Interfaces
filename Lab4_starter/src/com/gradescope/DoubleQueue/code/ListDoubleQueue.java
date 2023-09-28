@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @invariant: maxListSize > 0 AND LQueue.size() <= maxListSize
  *
- * @corresponds: 
+ * @corresponds: queue_max_size = maxListSize
  *
  */
 public class ListDoubleQueue implements IDoubleQueue {
