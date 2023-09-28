@@ -25,8 +25,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
      */
     public ArrayDoubleQueue(int maxSize)
     {
-
-
+        queueMaxSize = maxSize;
+        queue = new Double[queueMaxSize];
     }
 
     /**enqueueContact
@@ -42,6 +42,13 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
+        int index = 0;
+
+        while (index < queueMaxSize - 1 && queue[index] != null) {
+            index++;
+        }
+
+        queue[index] = val;
 
     }
 
@@ -50,17 +57,45 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public Double dequeue()
     {
+        int index = 1;
+
+        if (queue.length != 0) {
+            Double dequeued = queue[0];
+            while (index < queueMaxSize && queue[index] != null) {
+                queue[index - 1] = queue[index];
+                index++;
+            }
+            queue[index - 1] = 0.0;
+                return dequeued;  
+        } 
+        else {
+            return null;
+        }
 
     }
 
     @Override
     public int length()
     {
+        int index = 0;
 
+
+        while (index < queueMaxSize && queue[index] != null) {
+            index++;
+        }
+        return index;
     }
 
     public String toString()
     {
+        String outString = "";
+        int index = 0;
+        while(index < this.queueMaxSize && queue[index] != null) {
+            outString += "[";
+            outString += queue[index++];
+            outString += "]";
+        };
+        return outString;
 
     }
 
