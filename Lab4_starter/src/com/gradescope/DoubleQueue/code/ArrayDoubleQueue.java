@@ -65,7 +65,7 @@ public class ArrayDoubleQueue implements IDoubleQueue
                 queue[index - 1] = queue[index];
                 index++;
             }
-            queue[index - 1] = 0.0;
+            queue[index - 1] = null;
                 return dequeued;  
         } 
         else {
