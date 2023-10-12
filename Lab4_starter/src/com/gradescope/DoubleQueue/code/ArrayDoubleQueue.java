@@ -8,9 +8,9 @@
  * @corresponds: max_queue_size = queueMaxSize
  *
  */
-public class ArrayDoubleQueue implements IDoubleQueue
+public class ArrayDoubleQueue<T> implements IDoubleQueue<T>
 {
-    private Double[] queue;
+    private Object[] queue;
     private int queueMaxSize;
 
     /**ArrayDoubleQueueConstructorContact
@@ -26,7 +26,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
     public ArrayDoubleQueue(int maxSize)
     {
         queueMaxSize = maxSize;
-        queue = new Double[queueMaxSize];
+        //queue = new T[queueMaxSize];
+        queue = new Object[queueMaxSize];
     }
 
     /**enqueueContact
@@ -40,7 +41,7 @@ public class ArrayDoubleQueue implements IDoubleQueue
      *
      */
     @Override
-    public void enqueue(Double val)
+    public void enqueue(T val)
     {
         int index = 0;
 
@@ -55,12 +56,12 @@ public class ArrayDoubleQueue implements IDoubleQueue
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
 
     @Override
-    public Double dequeue()
+    public T dequeue()
     {
         int index = 1;
 
         if (queue.length != 0) {
-            Double dequeued = queue[0];
+            T dequeued = (T) queue[0];
             while (index < queueMaxSize && queue[index] != null) {
                 queue[index - 1] = queue[index];
                 index++;
@@ -78,7 +79,6 @@ public class ArrayDoubleQueue implements IDoubleQueue
     public int length()
     {
         int index = 0;
-
 
         while (index < queueMaxSize && queue[index] != null) {
             index++;
@@ -112,8 +112,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
         return this.queueMaxSize;
     }
 
-    public Double[] getQueue()
+    public T[] getQueue()
     {
-        return this.queue;
+        return (T[]) this.queue;
     }
 }

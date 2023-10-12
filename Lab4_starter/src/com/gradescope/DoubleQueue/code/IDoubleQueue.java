@@ -1,4 +1,4 @@
-package com.gradescope.DoubleQueue.code;
+//package com.gradescope.DoubleQueue.code;
 
 /**IDoubleQueueContract
  *
@@ -10,7 +10,7 @@ package com.gradescope.DoubleQueue.code;
  *@constraints: 0 < length < queueMaxSize, cant be empty for dequeue, can't be full for enqueue
  *
  */
-public interface IDoubleQueue
+public interface IDoubleQueue<T>
 {
 
     //This function's contracts are in the individual classes
@@ -54,20 +54,8 @@ public interface IDoubleQueue
      * State of the queue is unchanged.
      */
     public String toString();
-
-    /** Contract for peek()
-     *  This function returns item at the front of the queue.
-     *
-     *@return Returns a generic type T which is whatever is at the front of the queue no matter the type of variables in the queue.
-     *
-     *@pre length of the queue must be > 0 but < maxsize
-     *
-     *@post Function removes first item from queue storing it in temp type T, then adds it to the back
-     * then loops through dequeing then enqueing every item using temp2 type T until the first item is 
-     * back to the front of the queue, then temp is returned
-     **/
     
-    default public <T> T peek() {
+    default public T peek() {
         T temp, temp2;
         temp = this.dequeue();
         this.enqueue(temp);

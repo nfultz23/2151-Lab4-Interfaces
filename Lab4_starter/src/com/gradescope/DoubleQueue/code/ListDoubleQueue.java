@@ -4,7 +4,7 @@
  *Noah Fultz
  */
 
-package com.gradescope.DoubleQueue.code;
+//package com.gradescope.DoubleQueue.code;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @corresponds: queue_max_size = maxListSize
  *
  */
-public class ListDoubleQueue implements IDoubleQueue<T> {
+public class ListDoubleQueue<T> implements IDoubleQueue<T> {
     private ArrayList<T> LQueue;
     private int maxListSize;
 
@@ -50,12 +50,11 @@ public class ListDoubleQueue implements IDoubleQueue<T> {
      */
     @Override
     public void enqueue(T val) {
-        T inVal = new T(val);
         
         if(LQueue.size() == this.maxListSize)
             LQueue.set(this.maxListSize-1, val);
         else
-            LQueue.add(inVal);
+            LQueue.add(val);
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
