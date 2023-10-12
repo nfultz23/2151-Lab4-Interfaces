@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * @corresponds: queue_max_size = maxListSize
  *
  */
-public class ListDoubleQueue implements IDoubleQueue {
-    private ArrayList<Double> LQueue;
+public class ListDoubleQueue implements IDoubleQueue<T> {
+    private ArrayList<T> LQueue;
     private int maxListSize;
 
     /**ListDoubleQueueConstructorContact
@@ -27,12 +27,12 @@ public class ListDoubleQueue implements IDoubleQueue {
      *
      * @pre maxsize > 0
      *
-     * @post maxListSize = maxSize AND self = new ArrayList<Double>();
-     *       (input value becomes maximum list size and the LQueue member is a new and empty ArrayList<Double> object
+     * @post maxListSize = maxSize AND self = new ArrayList<T>();
+     *       (input value becomes maximum list size and the LQueue member is a new and empty ArrayList<T> object
      *
      */
     public ListDoubleQueue(int maxSize) {
-        this.LQueue = new ArrayList<Double>();
+        this.LQueue = new ArrayList<T>();
         this.maxListSize = maxSize;
     }
 
@@ -49,7 +49,7 @@ public class ListDoubleQueue implements IDoubleQueue {
      *
      */
     @Override
-    public void enqueue(Double val) {
+    public void enqueue(T val) {
         if(LQueue.size() == this.maxListSize)
             LQueue.set(this.maxListSize-1, val);
         else
@@ -59,7 +59,7 @@ public class ListDoubleQueue implements IDoubleQueue {
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
 
     @Override
-    public Double dequeue() {
+    public T dequeue() {
         return LQueue.remove(0);
     }
 
@@ -72,7 +72,7 @@ public class ListDoubleQueue implements IDoubleQueue {
 
     public String toString() {
         String ret = "";
-        for(Double d : LQueue) {
+        for(T d : LQueue) {
             ret += ("[" + d + "] ");
         }
         return ret;
