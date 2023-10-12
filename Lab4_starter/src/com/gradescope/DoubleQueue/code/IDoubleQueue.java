@@ -54,6 +54,18 @@ public interface IDoubleQueue
      * State of the queue is unchanged.
      */
     public String toString();
+
+    /** Contract for peek()
+     *  This function returns item at the front of the queue.
+     *
+     *@return Returns a generic type T which is whatever is at the front of the queue no matter the type of variables in the queue.
+     *
+     *@pre length of the queue must be > 0 but < maxsize
+     *
+     *@post Function removes first item from queue storing it in temp type T, then adds it to the back
+     * then loops through dequeing then enqueing every item using temp2 type T until the first item is 
+     * back to the front of the queue, then temp is returned
+     **/
     
     default public <T> T peek() {
         T temp, temp2;
