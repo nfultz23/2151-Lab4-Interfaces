@@ -14,12 +14,12 @@ public interface IDoubleQueue
 {
 
     //This function's contracts are in the individual classes
-    public void enqueue(Double val);
+    public void enqueue(T val);
 
     /**dequeueContract
      * This function remove an item from the beginning of the queue.
      *
-     *@return returns the double's value that gets removed from the queue
+     *@return returns the generic type's value that gets removed from the queue
      *
      *@pre length > 0
      *
@@ -27,7 +27,7 @@ public interface IDoubleQueue
      * Then loop through pushing every index back 1, which removes the first index.
      * New state is everyt index pushed left one and returned index gets removed.
      */
-    public Double dequeue();
+    public T dequeue();
 
     /**lengthContract
      * This function determines what the length of the queue is.
