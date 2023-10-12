@@ -1,4 +1,4 @@
-package com.gradescope.DoubleQueue.code;
+//package com.gradescope.DoubleQueue.code;
 
 /**ArrayDoubleQueueContract
  * Array implementation for the Double queue.
