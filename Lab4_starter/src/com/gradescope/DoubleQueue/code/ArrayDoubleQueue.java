@@ -90,10 +90,17 @@ public class ArrayDoubleQueue implements IDoubleQueue
     {
         String outString = "";
         int index = 0;
-        while(index < this.queueMaxSize && queue[index] != null) {
+        while(index < this.queueMaxSize) {
             outString += "[";
             outString += queue[index++];
-            outString += "] ";
+            if (index  == this.queueMaxSize) {
+                outString += "]";
+
+            }
+            else {
+                outString += "] ";
+            }
+
         };
         return outString;
 
