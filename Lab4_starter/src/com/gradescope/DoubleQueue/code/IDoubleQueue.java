@@ -54,4 +54,15 @@ public interface IDoubleQueue
      * State of the queue is unchanged.
      */
     public String toString();
+    
+    default public <T> T peek() {
+        T temp, temp2;
+        temp = this.dequeue();
+        this.enqueue(temp);
+        for (int i = 0; i < this.length() - 1; i++) {
+            temp2 = this.dequeue();
+            this.enqueue(temp2);
+        }
+        return temp;
+    }
 }
